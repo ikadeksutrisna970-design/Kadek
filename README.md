@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bali-Tech Intraday Trading Dashboard</title>
+    <title>BaliTrader X - Pro Intraday</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -15,7 +15,7 @@
                     colors: {
                         darkbg: '#080808',
                         cardbg: '#121212',
-                        accent: '#10b981', // Hijau Neon Trading
+                        accent: '#10b981', 
                         mutedText: '#9ca3af'
                     }
                 }
@@ -25,7 +25,7 @@
     <style>
         body { background-color: #080808; color: #ffffff; }
         
-        /* Efek Bayangan Ukiran / Ornamen Kas Bali Tipis di Background Card */
+        /* Siluet Ukiran Bali Asli berbasis SVG Watermark di Kartu */
         .balinese-watermark {
             position: relative;
             overflow: hidden;
@@ -33,13 +33,14 @@
         .balinese-watermark::before {
             content: "";
             position: absolute;
-            bottom: -20px;
-            right: -20px;
-            width: 150px;
-            height: 150px;
-            /* Simulasi siluet ukiran tradisional halus menggunakan SVG/Gradient */
-            background-image: radial-gradient(circle, rgba(16, 185, 129, 0.07) 10%, transparent 70%);
-            border-radius: 50%;
+            bottom: -15px;
+            right: -15px;
+            width: 140px;
+            height: 140px;
+            /* SVG Siluet Ornamen Ukiran Tradisional Bali (Patra Kepet / Karang) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='%2310b981' opacity='0.08'%3E%3Cpath d='M100 0c55.23 0 100 44.77 100 100s-44.77 100-100 100S0 155.23 0 100 44.77 0 100 0zm0 20c-44.18 0-80 35.82-80 80s35.82 80 80 80 80-35.82 80-80-35.82-80-80-80zm0 30c27.61 0 50 22.39 50 50s-22.39 50-50 50-50-22.39-50-50 22.39-50 50-50zm0 25c-13.81 0-25 11.19-25 25s11.19 25 25 25 25-11.19 25-25-11.19-25-25-25z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
             pointer-events: none;
             z-index: 0;
         }
@@ -140,7 +141,6 @@
             grid: { borderColor: '#1f2937', strokeDashArray: 3 }
         };
 
-        // Equity Curve
         var equityConfig = {
             ...chartOptions,
             series: [{ name: 'Profit ($)', data: [0, 210, 180, 450, 400, 890, 820, 1240] }],
@@ -159,7 +159,6 @@
         };
         new ApexCharts(document.querySelector("#mainEquityChart"), equityConfig).render();
 
-        // Sesi Skenario
         var sessionConfig = {
             ...chartOptions,
             series: [55, 30, 15],
